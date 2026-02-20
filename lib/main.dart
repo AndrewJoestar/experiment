@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './Component/bottomnavbar.dart';
 import './Component/bottomfloatingactionbutton.dart';
+import './customreorderlist.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,16 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView.builder(itemCount: 10,
-        itemBuilder: (BuildContext context, int index){
-        return ListTile(
-          leading: const Icon(Icons.list),
-          trailing: const Text("Done", style: TextStyle(fontSize: 15, color: Colors.green),
-        ),
-          title: Text("List item ${index+1}"),
-        );
-        },
-      ),
+      body:CustomList(),
       extendBody: true,//Optional
       floatingActionButton: MyFloatingActionButton(onPressed: _incrementCounter),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
