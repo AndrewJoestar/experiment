@@ -31,11 +31,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 1;
+  String halo = 'Hello World';
 
   void _incrementCounter() {
     setState(() {
       _counter*=2;
     });
+  }
+
+  void showText(){
+    // String text = 'Hello World';
   }
 
   @override
@@ -45,17 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-           Text('Nomor adalah: '),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      body: ListView.builder(itemCount: 10,
+        itemBuilder: (BuildContext context, int index){
+        return ListTile(
+          leading: const Icon(Icons.list),
+          trailing: const Text("Done", style: TextStyle(fontSize: 15, color: Colors.green),
         ),
+          title: Text("List item ${index+1}"),
+        );
+        },
       ),
       extendBody: true,//Optional
       floatingActionButton: MyFloatingActionButton(onPressed: _incrementCounter),
