@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:CustomList(),
       extendBody: true,//Optional
-      floatingActionButton: MyFloatingActionButton(onPressed: _incrementCounter),
+      floatingActionButton: MyFloatingActionButton(onPressed: openInput),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: MyBottomNavBar(),
     );

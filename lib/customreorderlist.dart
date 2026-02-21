@@ -11,7 +11,7 @@ class _CustomListState extends State<CustomList> {
   final FocusNode _focusNode  = FocusNode();
   final TextEditingController _controller = TextEditingController();
 
-  bool _showInput = false; //Status widget input
+  bool _showInput = true; //Status widget input
 
    List<Map<String, dynamic>> tasks = [
     {"title" : "Ngoding", "status" : "Done"},
@@ -22,7 +22,7 @@ class _CustomListState extends State<CustomList> {
 
    //Function input tasks terbaru
    //Menampilkan input
-   void _openInput(){
+   void openInput(){
      setState(() => _showInput = true);
       Future.delayed(const Duration(milliseconds: 100), (){
         //Delay penampilan input keyboard
@@ -92,5 +92,64 @@ class _CustomListState extends State<CustomList> {
       },
     );
 
+    if(_showInput)
+      GestureDetector(
+        onTap: _closeInput,
+        child: Container(
+          color: Colors.black.withOpacity(0.3),
+        ),
+      );
+
+    //Widget input muncul tengah layar
+    if(_showInput);
+    Center(child: Container(
+      margin: const EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.purple.shade100,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text("Tambahkan Tugas Baru",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12,),
+          TextField(
+            focusNode: _focusNode,
+            controller: _controller,
+            decoration: const InputDecoration(
+              hintText: "Masukan tugas",
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(),
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 8,
+              )
+            ),
+            onSubmitted: (_) => _addTask(),
+          ),
+          const SizedBox(height: 12,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(onPressed: _closeInput,
+                  child: const Text("Batal")
+              ),
+              const SizedBox(width: 8,),
+              ElevatedButton(onPressed: _addTask, child: const Text("Tambah")
+              ),
+            ],
+          )
+        ],
+      ),
+    ),
+    );
   }
 }
