@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MyFloatingActionButton extends StatelessWidget {
+class BottomFloatingAction extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const MyFloatingActionButton({super.key, required this.onPressed});
+  const BottomFloatingAction({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './Component/bottomnavbar.dart';
-import './Component/bottomfloatingactionbutton.dart';
 import './customreorderlist.dart';
 
 void main() {
@@ -9,12 +8,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Todo app',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.amber),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
       ),
       home: const MyHomePage(title: 'Home Page'),
       debugShowCheckedModeBanner: false,
@@ -31,17 +31,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 1;
-  String halo = 'Hello World';
 
-  void _incrementCounter() {
-    setState(() {
-      _counter*=2;
-    });
-  }
-
-  void showText(){
-    // String text = 'Hello World';
+  void _openInput() {
+    // ✅ fungsi diteruskan ke CustomReorderList via Navigator atau langsung
   }
 
   @override
@@ -51,17 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body:CustomList(),
-      extendBody: true,//Optional
-      floatingActionButton: MyFloatingActionButton(onPressed: openInput),
+      body: const CustomOrderList(), // ✅ tampilkan list di body
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: MyBottomNavBar(),
+      // bottomNavigationBar: MyBottomNavBar(),
     );
   }
 }
-
-
-
-
-
-
