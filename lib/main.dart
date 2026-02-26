@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: const CustomOrderList(), // ✅ tampilkan list di body
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // bottomNavigationBar: MyBottomNavBar(),
+      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 }
