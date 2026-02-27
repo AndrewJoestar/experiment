@@ -9,7 +9,7 @@ class MyBottomNavBar extends StatelessWidget{
       padding: const EdgeInsets.symmetric(horizontal: 10),
       height: 60,
       shape: const CircularNotchedRectangle(),
-      notchMargin: 5,
+      notchMargin: 20,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

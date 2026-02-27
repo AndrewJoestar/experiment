@@ -173,7 +173,7 @@ class _CustomOrderListState extends State<CustomOrderList> {
       floatingActionButton: BottomFloatingAction(
         onPressed: _openInput,
       ),
-      bottomNavigationBar: MyBottomNavBar(),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
