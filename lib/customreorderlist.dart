@@ -174,7 +174,7 @@ class _CustomOrderListState extends State<CustomOrderList> {
         onPressed: _openInput,
       ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
